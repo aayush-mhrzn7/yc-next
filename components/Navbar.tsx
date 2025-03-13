@@ -2,21 +2,15 @@ import { auth, signOut, signIn } from "@/auth";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import vercel from "@/public/vercel.svg";
+import Logo from "@/public/logo.png";
 const Navbar = async () => {
   const session = await auth();
 
   return (
     <div className="px-5 py-3 bg-white shadow-sm font-work-sans">
       <nav className="flex justify-between items-center">
-        <Link href={"/"} className="bg-black rounded-full p-1">
-          <Image
-            className="size-3"
-            src={vercel}
-            alt="logo"
-            width={50}
-            height={50}
-          />
+        <Link href={"/"}>
+          <Image src={Logo} alt="logo" width={144} height={30} />
         </Link>
         <div className="flex items-center gap-5">
           {session && session?.user ? (
